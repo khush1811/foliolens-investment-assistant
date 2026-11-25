@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f7f7fc">
+  <meta name="description" content="FolioLens is an educational portfolio review and investment research assistant.">
+  <title>FolioLens | Investment Assistant</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="portfolio.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <aside class="sidebar" aria-label="Workspace">
+    <a href="#overview" class="brand" aria-label="FolioLens overview"><span class="logo" aria-hidden="true"><i></i><i></i><i></i></span><span>Folio<span>Lens</span></span></a>
+    <div class="nav-label">WORKSPACE</div>
+    <nav id="navigation" aria-label="Primary">
+      <a href="#overview" data-view="overview"><span aria-hidden="true">◫</span> Overview</a>
+      <a href="#holdings" data-view="holdings"><span aria-hidden="true">▤</span> Holdings</a>
+      <a href="#risk" data-view="risk"><span aria-hidden="true">◈</span> Risk Lab</a>
+      <a href="#news" data-view="news"><span aria-hidden="true">▧</span> Market News</a>
+    </nav>
+    <div class="side-footer">
+      <div class="mode-note"><strong><span aria-hidden="true">◉</span> Demo workspace</strong><p>Fictional securities and market data</p></div>
+      <button id="profile" type="button" class="profile"><span class="avatar" aria-hidden="true">DI</span><span><strong>Demo investor</strong><small>Goals and settings</small></span><span class="profile-gear" aria-hidden="true">⚙</span></button>
+    </div>
+  </aside>
+  <header class="topbar">
+    <div class="breadcrumb"><span>Workspace</span><span aria-hidden="true">/</span><strong id="crumb">Overview</strong></div>
+    <div class="top-actions">
+      <span class="snapshot"><i></i> Demo close · 20 Nov 2026</span>
+      <button class="button secondary" id="open-import" type="button"><span aria-hidden="true">↑</span> Import portfolio</button>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <div id="work"></div>
+    <aside id="assistant" class="assistant panel" aria-label="Portfolio assistant">
+      <div class="assistant-header">
+        <div class="assistant-icon" aria-hidden="true">✦</div>
+        <div><h2>FolioLens Assistant</h2><p id="engine-mode">Portfolio Q&A</p></div>
+        <button type="button" class="icon-button" id="assistant-info" aria-label="How the assistant works" title="How the assistant works">ⓘ</button>
+      </div>
+      <div class="conversation" id="conversation" role="log" aria-label="Conversation" aria-live="polite">
+        <div class="welcome-message">
+          <div class="welcome-label"><span aria-hidden="true">✦</span> Portfolio briefing</div>
+          <p>I can explain what’s driving your portfolio, where risk is concentrated, and which events are worth reviewing.</p>
+        </div>
+        <div class="prompt-list" aria-label="Suggested questions">
+          <button type="button" data-prompt="What is my biggest risk?"><span aria-hidden="true">◈</span> What is my biggest risk?</button>
+          <button type="button" data-prompt="How is my portfolio doing?"><span aria-hidden="true">↗</span> How is my portfolio doing?</button>
+          <button type="button" data-prompt="What news affects my holdings?"><span aria-hidden="true">▧</span> What news affects my holdings?</button>
+        </div>
+        <div id="messages"></div>
+      </div>
+      <form id="ask-form" class="ask-form">
+        <label class="sr-only" for="question">Ask about your portfolio</label>
+        <div class="question-field"><input id="question" maxlength="350" placeholder="Ask about your portfolio…" required autocomplete="off"><button id="send" type="submit" aria-label="Send question" class="send">↑</button></div>
+        <p>Educational analysis · Fictional data</p>
+      </form>
+    </aside>
+  </main>
+  <dialog id="dialog" aria-labelledby="dialog-title">
+    <div class="dialog-top"><h2 id="dialog-title"></h2><form method="dialog"><button class="icon-button" aria-label="Close dialog">×</button></form></div>
+    <div id="dialog-body"></div>
+  </dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
